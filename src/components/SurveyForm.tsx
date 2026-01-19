@@ -106,8 +106,8 @@ export default function SurveyForm({ survey, isEdit = false }: SurveyFormProps) 
         router.push('/admin');
         router.refresh();
       } else {
-        const error = await response.json();
-        alert(error.message || 'Failed to save survey');
+        const errorData = await response.json();
+        alert(errorData.error || 'Failed to save survey');
       }
     } catch (error) {
       console.error('Failed to save survey:', error);
