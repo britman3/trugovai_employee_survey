@@ -1,5 +1,35 @@
 # TruGovAI™ Employee AI Survey
 
+# # TruGovAI™ Employee AI Survey — Authoritative Specification
+
+This document is the single source of truth for this application.
+
+## Mandatory Implementation Rules
+
+The implementing agent MUST follow these rules:
+
+1. Implement the application exactly as specified in this document.
+2. Do NOT invent features, screens, fields, workflows, or data models.
+3. Do NOT remove, simplify, or reinterpret any requirement.
+4. Do NOT change the tech stack, libraries, or architecture unless explicitly required to make the app run.
+5. If any requirement is ambiguous or technically conflicting, STOP and ask a clarification question before proceeding.
+6. Build incrementally and confirm completion of each major section before moving on.
+7. If assumptions conflict with this document, THIS DOCUMENT WINS.
+
+## Scope Control
+
+- This specification defines **v1 only**.
+- Features listed under *Future Considerations* must NOT be implemented.
+- Assume a **single-organisation context** (no multi-tenancy UI or logic in v1).
+
+## Authority & Compliance
+
+- File name: `SPEC.md`
+- Status: **Authoritative / Contractual**
+- Any deviation from this document is considered an error.
+
+Proceed only after confirming full understanding of this specification.
+
 ## Project Overview
 
 Build a web application for conducting AI usage surveys across an organisation. The app discovers "Shadow AI" — tools employees use without IT approval — and feeds results into the AI Tool Inventory system.
