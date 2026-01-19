@@ -1,0 +1,268 @@
+@import "tailwindcss";
+
+:root {
+  /* Primary */
+  --navy: #0F2A3A;
+  --teal: #1AA7A1;
+  --ice: #F4F7F9;
+
+  /* Secondary */
+  --slate700: #4C5D6B;
+  --mint300: #71D1C8;
+
+  /* Traffic Light System */
+  --lime500: #7BC96F;
+  --coral500: #FF6B6B;
+  --amber: #F59E0B;
+
+  /* UI */
+  --radius: 14px;
+  --shadow: 0 8px 24px rgba(0,0,0,0.08);
+
+  /* Backgrounds */
+  --background: var(--ice);
+  --foreground: var(--slate700);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-navy: var(--navy);
+  --color-teal: var(--teal);
+  --color-ice: var(--ice);
+  --color-slate: var(--slate700);
+  --color-mint: var(--mint300);
+  --color-lime: var(--lime500);
+  --color-coral: var(--coral500);
+  --color-amber: var(--amber);
+  --font-sans: "Inter", system-ui, sans-serif;
+  --radius-card: var(--radius);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+/* Button styles */
+.btn {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--teal);
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #158d88;
+}
+
+.btn-secondary {
+  background-color: white;
+  color: var(--navy);
+  border: 1px solid var(--slate700);
+}
+
+.btn-secondary:hover {
+  background-color: var(--ice);
+}
+
+.btn-danger {
+  background-color: var(--coral500);
+  color: white;
+}
+
+.btn-danger:hover {
+  background-color: #e55555;
+}
+
+/* Card styles */
+.card {
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px;
+}
+
+/* Form input styles */
+.input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--teal);
+  box-shadow: 0 0 0 3px rgba(26, 167, 161, 0.1);
+}
+
+.input-error {
+  border-color: var(--coral500);
+}
+
+.input-error:focus {
+  box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+
+/* Label styles */
+.label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--navy);
+}
+
+/* Error text */
+.error-text {
+  color: var(--coral500);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* Status badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.badge-active {
+  background-color: rgba(123, 201, 111, 0.15);
+  color: #4a9c3e;
+}
+
+.badge-closed {
+  background-color: rgba(76, 93, 107, 0.15);
+  color: var(--slate700);
+}
+
+.badge-expired {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #b45309;
+}
+
+/* Risk severity badges */
+.badge-risk-high {
+  background-color: rgba(255, 107, 107, 0.15);
+  color: #dc2626;
+}
+
+.badge-risk-medium {
+  background-color: rgba(245, 158, 11, 0.15);
+  color: #b45309;
+}
+
+.badge-risk-low {
+  background-color: rgba(123, 201, 111, 0.15);
+  color: #4a9c3e;
+}
+
+/* Typography */
+h1 {
+  font-size: 44px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.2;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.3;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.4;
+}
+
+/* Table styles */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  text-align: left;
+  padding: 12px 16px;
+  background-color: var(--ice);
+  font-weight: 600;
+  color: var(--navy);
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.table tr:hover {
+  background-color: rgba(244, 247, 249, 0.5);
+}
+
+/* Radio and Checkbox styles */
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.radio-option,
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.radio-option:hover,
+.checkbox-option:hover {
+  border-color: var(--teal);
+  background-color: rgba(26, 167, 161, 0.05);
+}
+
+.radio-option.selected,
+.checkbox-option.selected {
+  border-color: var(--teal);
+  background-color: rgba(26, 167, 161, 0.1);
+}
+
+/* Scrollbar styles */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--ice);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4c4c4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a0a0a0;
+}

@@ -1,0 +1,68 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// User model for admin authentication
+model User {
+  id             String    @id @default(uuid())
+  email          String    @unique
+  name           String?
+  password       String
+  organisationId String
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  surveys        Survey[]
+}
+
+// Survey model
+model Survey {
+  id                String           @id @default(uuid())
+  name              String
+  description       String
+  isAnonymous       Boolean          @default(true)
+  collectDepartment Boolean          @default(true)
+  collectEmail      Boolean          @default(false)
+  isActive          Boolean          @default(false)
+  createdAt         DateTime         @default(now())
+  updatedAt         DateTime         @updatedAt
+  expiresAt         DateTime?
+  responseCount     Int              @default(0)
+  createdBy         String
+  organisationId    String
+  user              User             @relation(fields: [createdBy], references: [id])
+  responses         SurveyResponse[]
+
+  @@index([organisationId])
+  @@index([isActive])
+}
+
+// Survey Response model
+model SurveyResponse {
+  id                   String    @id @default(uuid())
+  surveyId             String
+  email                String?
+  department           String?
+  usesAI               Boolean
+  toolsUsed            String[]  @default([])
+  customTools          String[]  @default([])
+  tasksUsed            String[]  @default([])
+  subscriptionType     String?
+  entersSensitiveData  String?
+  hasApproval          String?
+  hasReceivedGuidance  Boolean
+  additionalComments   String?
+  submittedAt          DateTime  @default(now())
+  ipAddress            String?
+  survey               Survey    @relation(fields: [surveyId], references: [id], onDelete: Cascade)
+
+  @@index([surveyId])
+  @@index([department])
+}
